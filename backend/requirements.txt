@@ -1,34 +1,8 @@
-# Core FastAPI dependencies
-fastapi>=0.104.1
-uvicorn[standard]>=0.24.0
-python-multipart>=0.0.6
-
-# Data handling and validation
-pydantic>=2.5.0
-numpy>=1.24.0
-pillow>=10.0.0
-
-# Computer Vision and ML
-ultralytics>=8.0.0
-torch>=2.0.0
-torchvision>=0.15.0
-
-# HTTP requests (for URL image fetching)
-requests>=2.31.0
-
-# Optional: Better performance and additional features
-# gunicorn>=21.2.0          # Production WSGI server
-# python-jose[cryptography]  # JWT token support if needed
-# passlib[bcrypt]            # Password hashing if auth is added
-
-# Development dependencies (uncomment for development)
-# pytest>=7.4.0
-# pytest-asyncio>=0.21.0
-# httpx>=0.25.0             # For testing async HTTP clients
-# black>=23.0.0             # Code formatting
-# flake8>=6.0.0             # Code linting
-# mypy>=1.6.0               # Type checking
-
-# Production optimizations (uncomment for production deployment)
-# orjson>=3.9.0             # Faster JSON serialization
-# python-dotenv>=1.0.0      # Environment variable management
+fastapi
+uvicorn
+pillow
+requests
+torch
+torchvision
+ultralytics
+python-multipart
