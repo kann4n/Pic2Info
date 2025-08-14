@@ -1,28 +1,31 @@
-# Use an official Python runtime as a parent image
+# Use slim Python image for smaller size
 FROM python:3.10-slim
 
-# Set the working directory in the container
+# Set working directory
 WORKDIR /app
 
-# Copy the requirements file into the container
+# Install system dependencies needed for YOLO, OpenCV, and PIL
+RUN apt-get update && apt-get install -y \
+    gcc \
+    libgl1 \
+    libglib2.0-0 \
+    libjpeg-dev \
+    zlib1g-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy and install Python dependencies first (better build caching)
 COPY requirements.txt .
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir -r requirements.txt
 
-# Install any needed packages specified in requirements.txt
-# We also download the torch packages separately to ensure compatibility
-RUN pip install --no-cache-dir -r requirements.txt
-
-# Copy the rest of the application's code into the container
+# Copy application code
 COPY . .
 
-# Make port 8000 available to the world outside this container
-# Google Cloud Run automatically uses this port
-EXPOSE 8000
+# (Optional) Pre-download YOLO weights for faster startup in Hugging Face Spaces
+RUN python -c "from ultralytics import YOLO; YOLO('yolov8n.pt')"
 
-# Define environment variable for the port
-ENV PORT 8000
+# Expose Hugging Face Spaces default port
+EXPOSE 7860
 
-# Run the application using a production-grade server (gunicorn)
-# -w 4: Use 4 worker processes
-# -k uvicorn.workers.UvicornWorker: Use Uvicorn to run the ASGI app
-# --bind 0.0.0.0:$PORT: Bind to all network interfaces on the specified port
-CMD ["gunicorn", "-w", "2", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:8000"]
+# Run FastAPI app (single worker for memory efficiency)
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000", "--workers", "1"]

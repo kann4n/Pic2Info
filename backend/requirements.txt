@@ -1,7 +1,6 @@
 fastapi
 uvicorn
-gunicorn
-python-multipart
+pillow
 ultralytics
-Pillow
-slowapi
+torch==2.5.1
+requests
