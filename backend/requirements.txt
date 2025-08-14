@@ -2,6 +2,6 @@ fastapi
 uvicorn
 pillow
 requests
-torch==2.8.0
-torchvision==0.23.0
-ultralytics==8.2.93
+torch
+torchvision
+ultralytics
