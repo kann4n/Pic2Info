@@ -1,0 +1,265 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@tailwind utilities;
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.375rem;
+  /* Cybersecurity dark theme - light mode fallback */
+  --background: oklch(0.08 0.02 120); /* Very dark with slight green tint */
+  --foreground: oklch(0.85 0.05 140); /* Light green-tinted text */
+  --card: oklch(0.12 0.03 120); /* Slightly lighter dark */
+  --card-foreground: oklch(0.85 0.05 140);
+  --popover: oklch(0.12 0.03 120);
+  --popover-foreground: oklch(0.85 0.05 140);
+  --primary: oklch(0.65 0.15 140); /* Matrix green */
+  --primary-foreground: oklch(0.08 0.02 120);
+  --secondary: oklch(0.15 0.03 120);
+  --secondary-foreground: oklch(0.85 0.05 140);
+  --muted: oklch(0.15 0.03 120);
+  --muted-foreground: oklch(0.55 0.05 140);
+  --accent: oklch(0.15 0.03 120);
+  --accent-foreground: oklch(0.85 0.05 140);
+  --destructive: oklch(0.65 0.20 15); /* Red for threats */
+  --border: oklch(0.25 0.05 140); /* Green-tinted borders */
+  --input: oklch(0.15 0.03 120);
+  --ring: oklch(0.65 0.15 140);
+  --chart-1: oklch(0.65 0.15 140); /* Matrix green */
+  --chart-2: oklch(0.70 0.12 180); /* Cyan */
+  --chart-3: oklch(0.75 0.10 60); /* Yellow */
+  --chart-4: oklch(0.65 0.15 300); /* Purple */
+  --chart-5: oklch(0.70 0.15 30); /* Orange */
+  --sidebar: oklch(0.10 0.02 120);
+  --sidebar-foreground: oklch(0.85 0.05 140);
+  --sidebar-primary: oklch(0.65 0.15 140);
+  --sidebar-primary-foreground: oklch(0.08 0.02 120);
+  --sidebar-accent: oklch(0.15 0.03 120);
+  --sidebar-accent-foreground: oklch(0.85 0.05 140);
+  --sidebar-border: oklch(0.25 0.05 140);
+  --sidebar-ring: oklch(0.65 0.15 140);
+}
+
+.dark {
+  /* Enhanced dark mode for cybersecurity theme */
+  --background: oklch(0.05 0.02 120); /* Even darker background */
+  --foreground: oklch(0.90 0.06 140); /* Brighter green text */
+  --card: oklch(0.08 0.03 120);
+  --card-foreground: oklch(0.90 0.06 140);
+  --popover: oklch(0.08 0.03 120);
+  --popover-foreground: oklch(0.90 0.06 140);
+  --primary: oklch(0.70 0.18 140); /* Brighter matrix green */
+  --primary-foreground: oklch(0.05 0.02 120);
+  --secondary: oklch(0.12 0.03 120);
+  --secondary-foreground: oklch(0.90 0.06 140);
+  --muted: oklch(0.12 0.03 120);
+  --muted-foreground: oklch(0.60 0.06 140);
+  --accent: oklch(0.12 0.03 120);
+  --accent-foreground: oklch(0.90 0.06 140);
+  --destructive: oklch(0.70 0.22 15); /* Brighter red */
+  --border: oklch(0.20 0.06 140 / 30%); /* Semi-transparent green borders */
+  --input: oklch(0.12 0.03 120);
+  --ring: oklch(0.70 0.18 140);
+  --chart-1: oklch(0.70 0.18 140);
+  --chart-2: oklch(0.75 0.15 180);
+  --chart-3: oklch(0.80 0.12 60);
+  --chart-4: oklch(0.70 0.18 300);
+  --chart-5: oklch(0.75 0.18 30);
+  --sidebar: oklch(0.08 0.02 120);
+  --sidebar-foreground: oklch(0.90 0.06 140);
+  --sidebar-primary: oklch(0.70 0.18 140);
+  --sidebar-primary-foreground: oklch(0.05 0.02 120);
+  --sidebar-accent: oklch(0.12 0.03 120);
+  --sidebar-accent-foreground: oklch(0.90 0.06 140);
+  --sidebar-border: oklch(0.20 0.06 140 / 30%);
+  --sidebar-ring: oklch(0.70 0.18 140);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  
+  body {
+    @apply bg-background text-foreground;
+    /* Add subtle texture for cybersecurity feel */
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(0, 255, 0, 0.05) 1px, transparent 0);
+    background-size: 20px 20px;
+  }
+
+  /* Custom scrollbar for cybersecurity theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: oklch(0.08 0.02 120);
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: oklch(0.25 0.08 140);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: oklch(0.35 0.10 140);
+  }
+
+  /* Terminal-like selection */
+  ::selection {
+    background: oklch(0.25 0.15 140 / 50%);
+    color: oklch(0.90 0.06 140);
+  }
+}
+
+/* Custom animations for OSINT theme */
+@keyframes matrix-rain {
+  0% { transform: translateY(-100%); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(100vh); opacity: 0; }
+}
+
+@keyframes terminal-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+@keyframes scan-line {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Utility classes for cybersecurity effects */
+.matrix-text {
+  font-family: 'Courier New', monospace;
+  text-shadow: 0 0 5px currentColor;
+}
+
+.terminal-cursor::after {
+  content: '_';
+  animation: terminal-blink 1s infinite;
+  color: oklch(0.70 0.18 140);
+}
+
+.scan-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.scan-effect::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    oklch(0.70 0.18 140 / 10%) 50%, 
+    transparent 100%);
+  animation: scan-line 2s infinite;
+}
+
+/* Enhanced card effects for cybersecurity theme */
+.cyber-card {
+  background: oklch(0.08 0.03 120 / 40%);
+  border: 1px solid oklch(0.25 0.08 140 / 30%);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.cyber-card:hover {
+  border-color: oklch(0.70 0.18 140 / 50%);
+  box-shadow: 
+    0 0 20px oklch(0.70 0.18 140 / 20%),
+    inset 0 1px 0 oklch(0.70 0.18 140 / 10%);
+  transform: translateY(-2px);
+}
+
+/* Glitch effect for headers */
+.glitch {
+  position: relative;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.glitch::before {
+  animation: glitch-1 0.5s infinite;
+  color: oklch(0.75 0.15 180); /* Cyan */
+  z-index: -1;
+}
+
+.glitch::after {
+  animation: glitch-2 0.5s infinite;
+  color: oklch(0.70 0.20 15); /* Red */
+  z-index: -2;
+}
+
+@keyframes glitch-1 {
+  0%, 14%, 15%, 49%, 50%, 99%, 100% {
+    transform: translate(0, 0);
+  }
+  15%, 49% {
+    transform: translate(-2px, -1px);
+  }
+}
+
+@keyframes glitch-2 {
+  0%, 20%, 21%, 62%, 63%, 99%, 100% {
+    transform: translate(0, 0);
+  }
+  21%, 62% {
+    transform: translate(2px, 1px);
+  }
+}
