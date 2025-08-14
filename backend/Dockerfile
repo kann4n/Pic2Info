@@ -25,4 +25,4 @@ ENV PORT 8000
 # -w 4: Use 4 worker processes
 # -k uvicorn.workers.UvicornWorker: Use Uvicorn to run the ASGI app
 # --bind 0.0.0.0:$PORT: Bind to all network interfaces on the specified port
-CMD ["gunicorn", "-w", "4", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:8000"]
+CMD ["gunicorn", "-w", "2", "-k", "uvicorn.workers.UvicornWorker", "main:app", "--bind", "0.0.0.0:8000"]
