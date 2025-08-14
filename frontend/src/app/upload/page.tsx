@@ -74,7 +74,8 @@ export default function UploadPage() {
     formData.append("file", selectedFile);
 
     try {
-      const res = await fetch("http://127.0.0.1:8000/upload-image", {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const res = await fetch(`${apiUrl}/upload-image`, {
         method: "POST",
         body: formData,
       });
