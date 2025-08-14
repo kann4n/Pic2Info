@@ -1,7 +1,0 @@
-fastapi
-uvicorn
-gunicorn
-python-multipart
-ultralytics
-Pillow
-slowapi
