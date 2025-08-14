@@ -19,23 +19,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Logic for Render Persistent Disk ---
-# The model is stored on a persistent disk provided by Render.
-# This ensures the model isn't re-downloaded or lost on service restarts.
-MODEL_SOURCE_PATH = "yolov8n.pt"
-RENDER_DISK_PATH = "/data/yolov8n.pt"
-
-# On the first boot, copy the model from the repo to the persistent disk
-if not os.path.exists(RENDER_DISK_PATH):
-    print("Model not found on persistent disk. Copying from repository...")
-    # Create the directory if it doesn't exist
-    os.makedirs(os.path.dirname(RENDER_DISK_PATH), exist_ok=True)
-    shutil.copy(MODEL_SOURCE_PATH, RENDER_DISK_PATH)
-    print("Model copied successfully.")
-
-# Load YOLOv8 model from the persistent disk
-print(f"Loading model from: {RENDER_DISK_PATH}")
-model = YOLO(RENDER_DISK_PATH)  # nano version for speed
+# Load YOLOv8 model
+model = YOLO("yolov8n.pt")  # nano version for speed
 print("Model loaded successfully.")
 
 def extract_metadata(image: Image.Image, filename: str):
