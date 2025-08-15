@@ -1,0 +1,7 @@
+fastapi
+uvicorn
+pillow
+ultralytics
+torch==2.5.1
+requests
+python-multipart
