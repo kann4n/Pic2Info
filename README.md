@@ -16,7 +16,7 @@ Pic2Info is a full-stack web application that allows users to upload an image an
 - **Language:** Python
 - **ML Model:** YOLOv8n for object detection
 - **Image Processing:** Pillow
-- **Hosting:** Render
+- **Hosting:** HuggingFace
 
 ## Features
 
@@ -31,7 +31,7 @@ Pic2Info is a full-stack web application that allows users to upload an image an
 This application is deployed using a modern, serverless-first approach:
 
 - The **frontend** is hosted on **Vercel**, providing a global CDN for fast delivery.
-- The **backend** is hosted on **Render**, which supports Python applications and provides a persistent disk for storing the ML model file.
+- The **backend** is hosted on **HuggingFace**, which supports AI/ML applications and also free to use on basic plan.
 
 ## How to Run Locally
 
